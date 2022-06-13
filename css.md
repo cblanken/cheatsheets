@@ -63,8 +63,9 @@ a[data-filetype="image"] {...}
 a[data-info~="external"] {...}
 ```
 
-## Pseudo Selectors
-Pseudo selectors can target an element in a certain state
+## Pseudo Selectors 
+### [Pseudo Classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+Pseudo-classes can target an element in a certain state
 ```css
 /* Common pseudo-classes */
 A:before {...}  /* target the element _before_ an element A */
@@ -87,13 +88,19 @@ A:first-of-type {...}       /* target the first sibling of type A */
 a:link {...}    /* target all anchor tags which have not yet been clicked */
 a:visited {...} /* target all anchor tags which have been clicked */
 
-/* target fragments of an element with A::pseudo-element, notice the :: */
-A::first-letter {...}   /* target the first letter of an element */
-A::first-line {...}     /* target the first line of an element */
-
 /* target a UI element (radio button or checkbox) that has been checked */
 input[type="radio"]:checked {...}
 ```
+
+### [Pseudo Elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+A Pseudo-element is a keyword added to a selector that lets you style a specific part
+of the selected element(s)
+```css
+/* target fragments of an element with A::pseudo-element, notice the :: */
+A::first-letter {...}   /* target the first letter of an element */
+A::first-line {...}     /* target the first line of an element */
+```
+
 
 ## Multiple Selectors
 ```css
