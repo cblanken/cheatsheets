@@ -1,0 +1,2731 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cblanken.dev/cheatsheets/programming/rust/">
+      
+      
+        <link rel="prev" href="../python/">
+      
+      
+        <link rel="next" href="../../security/autopsy/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Rust - cblanken's cheatsheets</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rust" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="cblanken&#39;s cheatsheets" class="md-header__button md-logo" aria-label="cblanken's cheatsheets" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            cblanken's cheatsheets
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Rust
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="cblanken&#39;s cheatsheets" class="md-nav__button md-logo" aria-label="cblanken's cheatsheets" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    cblanken's cheatsheets
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Databases
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Databases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases/sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    General
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/asm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ASM (x86)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BASH Shell and Scripting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/chrome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chrome / Chromium Browser
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/cisco/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cisco
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/cmd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CMD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cron / crontabs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/ffuf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FFUF (Fuzz Faster U Fool)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git / Github
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/gmod_source/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Garry's Mod / Source Engine Console Cheat Sheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/gnuplot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gnuplot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/google-dorking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google-dorking / Effective Googling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General Linux Terminal Tips &amp; Tricks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/powershell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Powershell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/proxmox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proxmox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/rizin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rizin
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tmux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/vim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vim
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows Tips and Tricks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../networking/tcpdump/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tcpdump
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programming
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Programming
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    C
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../css/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Javascript (JS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PHP notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Rust
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rust
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#guidelines-best-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Guidelines / Best Practice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-macros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Macros
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shadowing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numerics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declaration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compound-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compound Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scoping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoping
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-lexical-lifetimes-nll" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Lexical Lifetimes (NLL)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ownership
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references-and-borrowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      References and Borrowing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Slices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-slices" class="md-nav__link">
+    <span class="md-ellipsis">
+      String Slices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collection-slices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collection Slices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Structures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enums
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declaration_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-articles-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Articles / Docs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuple-structs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuple structs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associated-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Associated Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Associated Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collections
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vec-and-vec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vec and !vec
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#result-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result Type
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Traits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traits-as-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traits as Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traits-bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traits Bounds
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifetimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifetimes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifetimes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lifetime-annotation-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifetime Annotation Syntax
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#panic" class="md-nav__link">
+    <span class="md-ellipsis">
+      panic!
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compilation-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compilation / Building
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compilation / Building">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cargo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cargo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rustc" class="md-nav__link">
+    <span class="md-ellipsis">
+      rustc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rustup" class="md-nav__link">
+    <span class="md-ellipsis">
+      rustup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paths-using-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paths / using modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages-and-crates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages and Crates
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/autopsy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Autopsy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/gdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/metasploit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metasploit Notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/pwntools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pwntools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/r2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Radare2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/splunk/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Splunk
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/volatility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Volatility3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#guidelines-best-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Guidelines / Best Practice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-macros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Macros
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shadowing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numerics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numerics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declaration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compound-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compound Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scoping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoping
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scoping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-lexical-lifetimes-nll" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Lexical Lifetimes (NLL)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ownership
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references-and-borrowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      References and Borrowing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Slices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-slices" class="md-nav__link">
+    <span class="md-ellipsis">
+      String Slices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collection-slices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collection Slices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Structures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enums
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declaration_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-articles-docs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Articles / Docs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuple-structs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuple structs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associated-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Associated Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Associated Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collections
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vec-and-vec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vec and !vec
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#result-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Result Type
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traits
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Traits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traits-as-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traits as Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traits-bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traits Bounds
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lifetimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifetimes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lifetimes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lifetime-annotation-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lifetime Annotation Syntax
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#panic" class="md-nav__link">
+    <span class="md-ellipsis">
+      panic!
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compilation-building" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compilation / Building
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compilation / Building">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cargo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cargo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rustc" class="md-nav__link">
+    <span class="md-ellipsis">
+      rustc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rustup" class="md-nav__link">
+    <span class="md-ellipsis">
+      rustup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paths-using-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paths / using modules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages-and-crates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages and Crates
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="rust">Rust</h1>
+<ul>
+<li><a href="https://doc.rust-lang.org/book/title-page.html">The Book</a><ul>
+<li><a href="https://doc.rust-lang.org/book/appendix-01-keywords.html">Keywords</a></li>
+<li><a href="https://doc.rust-lang.org/stable/book/appendix-02-operators.html">Operators and Symbols</a></li>
+<li><a href="https://doc.rust-lang.org/book/appendix-04-useful-development-tools.html">Dev Tools</a></li>
+</ul>
+</li>
+<li><a href="https://doc.rust-lang.org/std/">Standard Library</a></li>
+</ul>
+<h2 id="guidelines-best-practice">Guidelines / Best Practice</h2>
+<ul>
+<li><a href="https://rust-lang.github.io/api-guidelines/">API Guidelines</a></li>
+</ul>
+<h2 id="useful-macros">Useful Macros</h2>
+<pre><code class="language-rust">// The print line macro for writing to STDOUT
+!println(&quot;The value of x is {x}&quot;);
+!println(&quot;The value of x is {}&quot;, x);
+
+// The debug macro, !dbg writes out to STDERR and it includes 
+// the file and line number where the !dbg invocation was made
+!dbg(x);
+</code></pre>
+<h2 id="comments">Comments</h2>
+<pre><code class="language-rust">// Single line comment
+</code></pre>
+<pre><code class="language-rust">/// Documentation comment. They also support markdown notation
+/// # Heading 1
+/// ```
+/// let one = 1;
+/// ```
+</code></pre>
+<h2 id="variables">Variables</h2>
+<h4 id="declaration">Declaration</h4>
+<p>Declare variables with the <code>let</code> keyword. By default variable binding are immutable.</p>
+<pre><code class="language-rust">let     x: i32 = 42;    // immutable binding
+let mut x: i32 = 42;    // mutable binding
+</code></pre>
+<p>Const keyword</p>
+<h4 id="shadowing">Shadowing</h4>
+<p>Variables can be <em>shadowed</em>, which allows reuse of variable names in the same scope</p>
+<pre><code class="language-rust"></code></pre>
+<h3 id="numerics">Numerics</h3>
+<h4 id="declaration_1">Declaration</h4>
+<p>The Rust compiler can infer what type a variable is</p>
+<pre><code class="language-rust">let x: i32 = 10;
+let y: f64 = 2.17;
+</code></pre>
+<p>Or you can Use suffixes for explicit initialization of numerics</p>
+<pre><code class="language-rust">let i: i32 = 42i32;     // i = 42
+let f: f64 = 3.14f64;   // f = 3.14
+</code></pre>
+<h3 id="compound-types">Compound Types</h3>
+<ul>
+<li>Tuples</li>
+<li>Arrays</li>
+</ul>
+<h3 id="strings">Strings</h3>
+<h2 id="control-flow">Control Flow</h2>
+<ul>
+<li>
+<p><code>match</code>: a control flow construct to compare values against a series of patterns. it is somewhat like a more powerful and complex <code>switch</code> statement in C.
+    ```rust
+    enum Coin {
+        Penny,
+        Nickel,
+        Dime,
+        Quarter,
+    }</p>
+<p>fn value_in_cents(coin: Coin) -&gt; u8 {
+    match coin {
+        Coin::Penny =&gt; 1,
+        Coin::Nickel =&gt; 5,
+        Coin::Dime =&gt; 10,
+        Coin::Quarter =&gt; 25,
+    }
+}
+<code>- `if let`: acts as a less verbose way to handle match patterns
+- Note that the `if let` construct does not perform exhaustive checking like a `match` statement
+- `if let` is basically syntactic sugar for a `match` that ignores all other values</code>rust
+let config_max = Some(3u8);
+if let Some(max) = config_max {
+    println!("The maximum is configured to be {}", max);
+}
+```</p>
+</li>
+<li>
+<p>Looping</p>
+</li>
+</ul>
+<pre><code class="language-rust">// loop
+fn main() {
+    let mut counter = 0;
+    let result = loop {
+    counter += 1;
+
+    if counter == 10 {
+        break counter * 2;
+    }
+    };
+
+    println!(&quot;The result is {result}&quot;);
+}
+
+// while
+
+// while let
+
+// for in
+
+// loop labels for disambiguation between loops
+
+// Using `enumerate` over for loop
+</code></pre>
+<h2 id="functions">Functions</h2>
+<pre><code class="language-rust">// Returns are implicit with no semicolon on the last line
+fn multiply(x: i32, y: i32) -&gt; i32 {
+    x * y
+}
+
+// You can also use an explicit `return` statement
+fn multiply(x: i32, y:i32) -&gt; i32 {
+    return x * y;
+}
+</code></pre>
+<p>The conventional style for function names in rust is <em>snake case</em>.</p>
+<pre><code class="language-rust">fn hello_world() {
+    println!(&quot;Hello World!&quot;);
+}
+</code></pre>
+<h2 id="scoping">Scoping</h2>
+<ul>
+<li>Curly braces <code>{}</code></li>
+<li>The <code>use</code> keyword</li>
+<li><code>local</code> keyword</li>
+<li><code>static</code> lifetime</li>
+</ul>
+<h3 id="non-lexical-lifetimes-nll">Non-Lexical Lifetimes (NLL)</h3>
+<h2 id="memory-management">Memory Management</h2>
+<h3 id="ownership">Ownership</h3>
+<p>Ownership refers to the set of rules used by Rust to ensure safety during memory management. </p>
+<h3 id="references-and-borrowing">References and Borrowing</h3>
+<p>A <em>reference</em> is specified with the ampersand (<code>&amp;</code>).
+<em>Dereferencing</em> is done with the asterisk (<code>*</code>)</p>
+<pre><code class="language-rust">fn main() {
+    let s1 = String::from(&quot;hello&quot;);
+    let len = calculate_length(&amp;s1); // calculate length with borrowed s1
+    println!(&quot;The length of '{}' is {}.&quot;, s1, len);
+}
+</code></pre>
+<p>Rust allows for as many unmutable (default) references to a variable as  you want. However, you can only have a single <em>mutable</em> reference to a variable.</p>
+<h3 id="slices">Slices</h3>
+<h4 id="string-slices">String Slices</h4>
+<pre><code class="language-rust">let s = String::from(&quot;hello&quot;);
+let slice = &amp;s[0..2];   // slice from index 0 with length of 2
+let slice = &amp;s[..2];    // same as above
+let slice = &amp;s[2..];    // slice from index 2 to end of string
+let slice = &amp;s[..];     // slice of entire string
+</code></pre>
+<p>Be wary of mutibyte UTF-8 characters. See <a href="https://doc.rust-lang.org/book/ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">Storing UTF-8 Encoded Text with Strings</a></p>
+<h4 id="collection-slices">Collection Slices</h4>
+<pre><code class="language-rust">let a = [1, 2, 3, 4, 5];
+let slice = &amp;a[1..3];
+assert_eq!(slice, &amp;[2, 3]);
+</code></pre>
+<h2 id="data-structures">Data Structures</h2>
+<h3 id="enums">Enums</h3>
+<pre><code class="language-rust">#[derive(Debug, PartialEq, Copy, Clone)]
+pub enum VideoGameGenre {
+    FPS,
+    MOBA,
+    Platformer,
+    Metroidvania,
+    RPG,
+}
+</code></pre>
+<h3 id="structs">Structs</h3>
+<h4 id="declaration_2">Declaration</h4>
+<pre><code class="language-rust">struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+</code></pre>
+<p>Struct update syntax allows the remaining, unspecified fields of a new instantiation to be filled in by the values of another. The following example </p>
+<pre><code class="language-rust">struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+fn main() {
+    // --snip--
+
+    let user2 = User {
+        email: String::from(&quot;another@example.com&quot;),
+        ..user1
+    };
+}
+</code></pre>
+<h4 id="update-syntax"><a href="https://doc.rust-lang.org/book/ch05-01-defining-structs.html#creating-instances-from-other-instances-with-struct-update-syntax">Update Syntax</a></h4>
+<h4 id="useful-articles-docs">Useful Articles / Docs</h4>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/keyword.self.html">self Keyword</a></li>
+<li><a href="https://oswalt.dev/2020/05/mutable-references-to-self-in-rusts-object-methods/">Mutable References To 'self' In Rust's Objecdt Methods</a></li>
+</ul>
+<h4 id="tuple-structs">Tuple structs</h4>
+<pre><code class="language-rust">struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+fn main() {
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+}
+</code></pre>
+<h3 id="associated-function">Associated Function</h3>
+<p>An associated function refers to any function defined withing an <code>impl</code>. These functions can be methods or non-methods. 
+- Methods include <code>self</code> as the first parameter. Methods are accessed <code>.</code> 
+- Non-methods do not require a <code>self</code>. Non-methods are accessed with <code>::</code></p>
+<h4 id="methods">Methods</h4>
+<p>Use the <code>impl</code> keyword to define methods on <code>structs</code>. A method must have a either <code>self</code>, <code>&amp;self</code>, or <code>&amp;mut self</code> as it's first parameter.</p>
+<pre><code class="language-rust">#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&amp;self) -&gt; u32 {
+        self.width * self.height
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!(
+        &quot;The area of the rectangle is {} square pixels.&quot;,
+        rect1.area()
+    );
+}
+</code></pre>
+<h3 id="collections">Collections</h3>
+<h4 id="vec-and-vec">Vec and !vec</h4>
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="result-type">Result Type</h3>
+<pre><code class="language-rust"></code></pre>
+<h2 id="generics">Generics</h2>
+<h3 id="traits">Traits</h3>
+<h4 id="traits-as-parameters">Traits as Parameters</h4>
+<h4 id="traits-bounds">Traits Bounds</h4>
+<ul>
+<li>Compound trait bounds with <code>+</code></li>
+<li><code>where</code> clause
+    <code>fn some_function&lt;T, U&gt;(t: &amp;T, u: &amp;U) -&gt; i32
+    where T: Display + Clone,
+          U: Clone + Debug
+    {</code></li>
+</ul>
+<h3 id="lifetimes">Lifetimes</h3>
+<h4 id="lifetime-annotation-syntax">Lifetime Annotation Syntax</h4>
+<pre><code class="language-rust">&amp;i32        // a reference
+&amp;'a i32     // a reference with an explicit lifetime
+&amp;'a mut i32 // a mutable reference with an explicit lifetime
+
+fn longest&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str {
+    if x.len() &gt; y.len() {
+        x
+    } else {
+        y
+    }
+}
+
+#### Lifetime Ellision Rules
+#### The Static Lifetime
+
+</code></pre>
+<h2 id="attributes">Attributes</h2>
+<h3 id="panic"><a href="https://doc.rust-lang.org/book/ch09-03-to-panic-or-not-to-panic.html">panic!</a></h3>
+<h2 id="compilation-building">Compilation / Building</h2>
+<h3 id="cargo">Cargo</h3>
+<ul>
+<li>Run <code>cargo doc --open</code> from the project directory to open a local webpage listing docs for all the project's dependencies listed in <code>Cargo.toml</code></li>
+</ul>
+<h3 id="rustc">rustc</h3>
+<ul>
+<li>Use <code>rustc file.rs</code> to compile a rust binary</li>
+</ul>
+<h3 id="rustup">rustup</h3>
+<h2 id="paths-using-modules"><a href="https://doc.rust-lang.org/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html">Paths</a> / <a href="https://doc.rust-lang.org/book/ch07-02-defining-modules-to-control-scope-and-privacy.html">using modules</a></h2>
+<ul>
+<li>The <a href="https://doc.rust-lang.org/book/ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html#exposing-paths-with-the-pub-keyword"><code>pub</code> keyword</a></li>
+</ul>
+<h2 id="packages-and-crates">Packages and Crates</h2>
+<ul>
+<li><em>Packages</em>: one or more <em>crates</em> that provide functionality. A package contains a <code>Cargo.toml</code> files that describes how to build the crates.</li>
+<li><em>Crates</em> <ul>
+<li>Binary crate: programs that can be compiled into an executable, must have a <code>main</code> functions</li>
+<li>Library crate: defines functions to be shared to other projects, does <strong>NOT</strong> have a <code>main</code> function</li>
+</ul>
+</li>
+<li>A package can contain at most one library crate. It can contain as many binary crates as you’d like, but it must contain at least one crate (either library or binary).<ul>
+<li>Use <code>cargo new &lt;dir&gt;</code> to create a new crate (library crate by default) in the <code>dir</code> directory</li>
+<li>Specify a binary crate with <code>cargo new &lt;dir&gt; --bin</code></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

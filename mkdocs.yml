@@ -1,0 +1,21 @@
+site_name: cblanken's cheatsheets
+site_url: https://cblanken.dev/cheatsheets
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: orange
+    accent: deep orange
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.expand
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
