@@ -1,10 +1,7 @@
 # ASM (x86)
+
 - [Online Assembler / Disassembler](https://defuse.ca/online-x86-assembler.htm)
 - [Compiler Explorer](https://godbolt.org)
-
-
-### Syntax
-
 
 ### [Instructions](https://www.aldeid.com/wiki/X86-assembly/Instructions)
 
@@ -21,6 +18,7 @@ var
 ```
 
 ### Registers
+
 ```nasm
 ebp
 esp

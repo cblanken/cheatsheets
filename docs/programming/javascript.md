@@ -1,68 +1,85 @@
 # JavaScript
 
 ## Operators & Flow Control
+
 ### Numbers
+
 JS has a single Number type
+
 ```js
 // Arithmetic
-1 + 1   // = 2
-8 - 7   // = 1
-10 * 3  // = 30
-40 / 8  // = 5
+1 + 1; // = 2
+8 - 7; // = 1
+10 * 3; // = 30
+40 / 8; // = 5
 
 // Modulo
-22 % 2  // = 0
-27 % 4  // = 3 
-9 % 2.5 // = 1.5
+22 % 2; // = 0
+27 % 4; // = 3
+9 % 2.5; // = 1.5
 
-// Infinity / non real numbers
-Infinity
--Infinity
-Number.POSITIVE_INFINITY    // alias for Infinity
-Number.NEGATIVE_INFINITY    // alias for -Infinity
+// Infinity and non real numbers
+Infinity - Infinity;
+Number.POSITIVE_INFINITY; // alias for Infinity
+Number.NEGATIVE_INFINITY; // alias for -Infinity
 ```
 
 ### Booleans / Comparisons
 
+TODO
+
 ## Patterns
-### Objects
+
+TODO
+
+## Objects
+
 - [Built-Ins](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
 
+## Closures
 
-### Closures
-```js
-```
+TODO
 
-### Prototypal Inheritance
-```js
+## Prototypal Inheritance
 
-```
+TODO
 
-### Factories
+## Factories
+
 ```js
 const Player = (name, teamSymbol) => {
-    let score = 0;
-    const getName = () => name;
-    const setName = (x) => name = x;
-    const getTeamSymbol = () => teamSymbol;
-    const setTeamSymbol = (x) => teamSymbol = x;
-    const getScore = () => score;
-    const incrementScore = () => { 
-        score++;
-    }
+  let score = 0;
+  const getName = () => name;
+  const setName = (x) => (name = x);
+  const getTeamSymbol = () => teamSymbol;
+  const setTeamSymbol = (x) => (teamSymbol = x);
+  const getScore = () => score;
+  const incrementScore = () => {
+    score++;
+  };
 
-    const play = (x, y, gameBoard) => {
-        console.log(`${name} played at [${x}, ${y}]!`);
-    };
+  const play = (x, y, gameBoard) => {
+    console.log(`${name} played at [${x}, ${y}]!`);
+  };
 
-    return {getName, setName, getTeamSymbol, setTeamSymbol, getScore, incrementScore, play}
+  return {
+    getName,
+    setName,
+    getTeamSymbol,
+    setTeamSymbol,
+    getScore,
+    incrementScore,
+    play,
+  };
 };
 ```
 
-### Module Pattern
+## Module Pattern
 
-### Class Syntax
+## Classes
+
 TODO: list of all class features
+
 ```js
 class User {
   constructor(name) {
@@ -80,3 +97,4 @@ user.sayHi();
 
 ## DOM Manipulation
 
+TODO

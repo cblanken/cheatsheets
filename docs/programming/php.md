@@ -1,6 +1,9 @@
 # PHP
+
 ### Misc
-- If you get a blank SOD, enable display of errors in `php.ini`. Location depends on install and web server but probably: `/etc/php/7.4/apache2/php.ini
+
+- If you get a blank SOD, enable display of errors in `php.ini`. The location depends on the installation and web server but usually: `/etc/php/X.Y/apache2/php.ini` where `X.Y` is the PHP version.
 
 ### Standard PHP Library (SPL)
 
+TODO

@@ -1,12 +1,16 @@
-# Volatility3 
+# Volatility3
 
 ## Windows
+
 ### Process Info
-```bash
+
+```shell
 vol.py -f memdump.mem windows.info.Info
 ```
+
 ### Process Dump
-```bash
+
+```shell
 vol.py -f memdump.mem windows.pslist.PsList
 vol.py -f memdump.mem windows.pstree.PsTree
 ```
@@ -14,19 +18,22 @@ vol.py -f memdump.mem windows.pstree.PsTree
 ### Memory Dump
 
 ### DLLs
-```bash
+
+```shell
 vol.py -f memdump.mem windows.dlllist.DllList
 vol.py -f memdump.mem windows.dumpfiles.DumpFiles --pid <pid>
 ```
 
 ### Network Info
-```bash
+
+```shell
 vol.py -f memdump.mem windows.netscan.NetScan
 ```
 
 ### Registry
 
 ### Malware
-```bash
+
+```shell
 vol.py -f memdump.mem windows.malfind.Malfind --dump
 ```

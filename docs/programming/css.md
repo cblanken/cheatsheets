@@ -1,18 +1,21 @@
 # CSS
 
 Capital letters (A, B, C, etc.) are used to indicate when syntax can be applied to essentially any CSS selector.
+
 ## Syntax & Common Properties
+
 ```css
 /* comments */
 
 /* specify CSS rule */
-<selector> {
-    <rule1>: <value>;
-    <rule2>: <value>;
+<selector > {
+  <rule1>: <value>;
+  <rule2>: <value>;
 }
 ```
 
 ## Basic Selectors Types
+
 ```css
 /* any selector */
 * {...}
@@ -31,7 +34,9 @@ A:pseudo-class {...}
 ```
 
 ## Combinator Selectors
+
 Combine selectors for more specificity
+
 ```css
 /* descendant selector */
 A B {...} /* target all B elements which are inside a A element */
@@ -47,7 +52,9 @@ A ~ B {...} /* target B elements which are preceded by an A element (less strict
 ```
 
 ## Attribute Selectors
+
 Target elements with the attribute specified in square brackets [...]
+
 ```css
 A[attribute="value"] {...}
 
@@ -63,12 +70,11 @@ a[data-filetype="image"] {...}
 a[data-info~="external"] {...}
 ```
 
-## Pseudo Selectors 
+## Pseudo Selectors
 
 ### Pseudo-classes
 
-A [Pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) can
-target an element in a certain state
+A [Pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) can target an element in a certain state
 
 ```css
 /* Common pseudo-classes */
@@ -98,9 +104,7 @@ input[type="radio"]:checked {...}
 
 ### Pseudo-element
 
-A [Pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) is
-a keyword added to a selector that lets you style a specific part of the
-selected element(s)
+A [Pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) is a keyword added to a selector that lets you style a specific part of the selected element(s)
 
 ```css
 /* target fragments of an element with A::pseudo-element, notice the :: */
@@ -118,7 +122,7 @@ h3 elements */
 h1,
 h2,
 h3 {
-    background-color: blue;
+  background-color: blue;
 }
 ```
 
@@ -129,4 +133,3 @@ TODO
 ## CSS Grid
 
 TODO
-

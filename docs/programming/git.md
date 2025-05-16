@@ -1,31 +1,24 @@
 # Git
 
-### Logs
-```git
-git log --oneline
+## Logs
+
+```shell
+git log --oneline # concise output with a truncated hash and commit message
 ```
 
-### Commits
-* Rules to live by 🙃
-    * Don't end commit messages with a period (.)
-    * Keep commit messages to 50 chars or less.
-    * Use active voice (e.g. "add" instead of "added" and "merge" instead of "merged")
-    * Think of your commit as expressing intent to introduce a change
+## Commits
 
-```git
-# commit staged files with short 'message'
-git commit -m "message"
+- Rules to live by
+  - Don't end commit messages with a period (`.`)
+  - Keep commit messages under 50 characters
+  - Use active voice (e.g. "add" instead of "added" and "merge" instead of "merged")
+  - Think of your commit as expressing intent to introduce a change
+
+```shell
+git commit # open default editor to write commit message
+git commit -m "message" # commit with "message"
 ```
 
-### Staging
+## Workflow
 
-
-### Branching
-
-
-### Merging
-```git
-git merge <merging branch>
-```
-
-### Rebasing
+TODO

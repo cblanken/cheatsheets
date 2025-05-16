@@ -1,5 +1,7 @@
 # Python
 
+TODO
+
 ```python
 # Operators
 
@@ -29,10 +31,12 @@
 ```
 
 ## Performance
+
 - [Python wiki](https://wiki.python.org/moin/PythonSpeed/PerformanceTips)
-- [Stackify article](https://stackify.com/20-simple-python-performance-tuning-tips/)
+- [Python Performance Tuning: 20 Simple Tips](https://stackify.com/20-simple-python-performance-tuning-tips/)
 
+## Project Management and Virtual Environments
 
-## Dependencies / Virtual Environments
-- [Poetry](https://python-poetry.org/docs/basic-usage/)
+- [uv](https://docs.astral.sh/uv/)
 - [Virtualenv](https://virtualenv.pypa.io/en/latest/)
+- [Poetry](https://python-poetry.org/docs/basic-usage/)
