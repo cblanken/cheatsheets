@@ -729,6 +729,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patterns and Anti-patterns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../php/" class="md-nav__link">
         
   
@@ -2471,6 +2494,12 @@
 </span></code></pre></div></li>
 </ul>
 <h3 id="lifetimes">Lifetimes</h3>
+<p>Some general tips:</p>
+<ol>
+<li>Don't use References. Use ownership and share nothing. Pass and return variables through functions if you need to.</li>
+<li>Copy and Clone everything. The performance hit probably won't be noticeable. If it is, <em>then</em> refactor.</li>
+<li>Only use References</li>
+</ol>
 <h4 id="lifetime-annotation-syntax">Lifetime Annotation Syntax</h4>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="o">&amp;</span><span class="kt">i32</span><span class="w">        </span><span class="c1">// a reference</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="o">&amp;&#39;</span><span class="na">a</span><span class="w"> </span><span class="kt">i32</span><span class="w">     </span><span class="c1">// a reference with an explicit lifetime</span>

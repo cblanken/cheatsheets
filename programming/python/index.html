@@ -729,6 +729,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patterns and Anti-patterns
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../php/" class="md-nav__link">
         
   
@@ -802,9 +825,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
+  <a href="#syntax" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance
+      Syntax
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-hinting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Hinting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-and-profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance and Profiling
     </span>
   </a>
   
@@ -1279,9 +1329,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
+  <a href="#syntax" class="md-nav__link">
     <span class="md-ellipsis">
-      Performance
+      Syntax
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-hinting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Hinting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-and-profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance and Profiling
     </span>
   </a>
   
@@ -1314,6 +1391,7 @@
 
 <h1 id="python">Python</h1>
 <p>TODO</p>
+<h2 id="syntax">Syntax</h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Operators</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Loops</span>
@@ -1340,11 +1418,35 @@
 </span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
 </span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># Decorators</span>
 </span></code></pre></div>
-<h2 id="performance">Performance</h2>
+<h2 id="type-hinting">Type Hinting</h2>
+<ul>
+<li><a href="https://adamj.eu/tech/2021/05/11/python-type-hints-args-and-kwargs/">Python type hints: *args and **kwargs</a></li>
+<li><a href="https://adamj.eu/tech/2021/05/07/python-type-hints-use-object-instead-of-any/">Python type hints: Use <code>object</code> instead of <code>Any</code></a></li>
+</ul>
+<h2 id="logging">Logging</h2>
+<p>Python has plenty of built-in functionality for logging via the <a href="https://docs.python.org/3/library/logging.html#module-logging">logging</a> module.</p>
+<h2 id="performance-and-profiling">Performance and Profiling</h2>
 <ul>
 <li><a href="https://wiki.python.org/moin/PythonSpeed/PerformanceTips">Python wiki</a></li>
 <li><a href="https://stackify.com/20-simple-python-performance-tuning-tips/">Python Performance Tuning: 20 Simple Tips</a></li>
 </ul>
+<p>It's always important to <em>measure</em> the performance of your programs when trying to isolate performance issues and/or bottlenecks. Even if you think you know all the subtle optimization going on under the hood, you may have any number of misconceptions about how your programming language is actually executing instructions on the machine. <em>Especially</em> for Python since it's backed by CPython many operations may already be executing fairly optimized implementations, but others may not be (think 3rd party dependencies). So, you can never be sure.</p>
+<p>Understanding the context of your program and profiling will always beat your gut. Just measure, then you'll know.</p>
+<p>There are several useful tools for profiling your Python programs. Some available in the standard library and some 3rd party tools.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/plasma-umass/scalene">Scalene</a></td>
+<td>A high-precision CPU, GPU, and memory profiler for python. Unfortunately also includes AI (LLM) recommendation, but they're optional.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="project-management-and-virtual-environments">Project Management and Virtual Environments</h2>
 <ul>
 <li><a href="https://docs.astral.sh/uv/">uv</a></li>

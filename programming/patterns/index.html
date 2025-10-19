@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cheatsheets.cblanken.dev/programming/php/">
+        <link rel="canonical" href="https://cheatsheets.cblanken.dev/programming/patterns/">
       
       
-        <link rel="prev" href="../patterns/">
+        <link rel="prev" href="../javascript/">
       
       
-        <link rel="next" href="../python/">
+        <link rel="next" href="../php/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>PHP - cblanken's cheatsheets</title>
+        <title>Patterns and Anti-patterns - cblanken's cheatsheets</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#php" class="md-skip">
+        <a href="#patterns-and-anti-patterns" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PHP
+              Patterns and Anti-patterns
             
           </span>
         </div>
@@ -726,29 +726,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../patterns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Patterns and Anti-patterns
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -766,7 +743,7 @@
   
   
   <span class="md-ellipsis">
-    PHP
+    Patterns and Anti-patterns
     
   </span>
   
@@ -779,7 +756,7 @@
   
   
   <span class="md-ellipsis">
-    PHP
+    Patterns and Anti-patterns
     
   </span>
   
@@ -802,72 +779,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+  <a href="#boolean-trap" class="md-nav__link">
     <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debugging" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debugging
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#standard-php-library-spl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Standard PHP Library (SPL)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#php-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      PHP Types
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unicode-utf-8" class="md-nav__link">
-    <span class="md-ellipsis">
-      Unicode / UTF-8
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#misc" class="md-nav__link">
-    <span class="md-ellipsis">
-      Misc
+      Boolean trap
     </span>
   </a>
   
@@ -877,6 +791,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PHP
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1356,72 +1293,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+  <a href="#boolean-trap" class="md-nav__link">
     <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debugging" class="md-nav__link">
-    <span class="md-ellipsis">
-      Debugging
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#standard-php-library-spl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Standard PHP Library (SPL)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#php-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      PHP Types
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unicode-utf-8" class="md-nav__link">
-    <span class="md-ellipsis">
-      Unicode / UTF-8
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#misc" class="md-nav__link">
-    <span class="md-ellipsis">
-      Misc
+      Boolean trap
     </span>
   </a>
   
@@ -1443,38 +1317,9 @@
 
 
 
-<h1 id="php">PHP</h1>
-<h2 id="documentation">Documentation</h2>
-<ul>
-<li><a href="https://www.php.net/manual/en/">PHP Manual</a></li>
-</ul>
-<h2 id="best-practices">Best Practices</h2>
-<ul>
-<li><a href="https://phptherightway.com/#language_highlights">PHP The Right Way</a></li>
-<li><a href="https://phpbestpractices.org">PHP Best Practices: A short, practical guide for common and confusing PHP tasks</a></li>
-</ul>
-<h2 id="security">Security</h2>
-<ul>
-<li><a href="http://github.com/korijn/flake8-self">The 2018 Guide to Building Secure PHP Software</a></li>
-</ul>
-<h2 id="debugging">Debugging</h2>
-<ul>
-<li><a href="https://xdebug.org">Xdebug</a></li>
-</ul>
-<h2 id="standard-php-library-spl">Standard PHP Library (SPL)</h2>
-<p>TODO</p>
-<h2 id="php-types">PHP Types</h2>
-<ul>
-<li><a href="https://www.php.net/manual/en/types.comparisons.php">PHP type comparison tables</a></li>
-<li><a href="https://www.php.net/manual/en/language.types.type-juggling.php">Type Juggling</a></li>
-</ul>
-<h2 id="unicode-utf-8">Unicode / UTF-8</h2>
-<p>If you aren't using a framework you probably need to be using the <code>mb_*</code> variants of string functions. Also watch out for databases storing string in encoding different from UTF-8.</p>
-<p>See <a href="https://phptherightway.com/#php_and_utf8">https://phptherightway.com/#php_and_utf8</a></p>
-<h2 id="misc">Misc</h2>
-<ul>
-<li>If you get a blank SOD, enable display of errors in <code>php.ini</code>. The location depends on the installation and web server but usually: <code>/etc/php/X.Y/apache2/php.ini</code> where <code>X.Y</code> is the PHP version.</li>
-</ul>
+<h1 id="patterns-and-anti-patterns">Patterns and Anti-patterns</h1>
+<h2 id="boolean-trap">Boolean trap</h2>
+<p><a href="https://adamj.eu/tech/2021/07/10/python-type-hints-how-to-avoid-the-boolean-trap/">Python type hints: how to avoid "the boolean trap"</a></p>
 
 
 
