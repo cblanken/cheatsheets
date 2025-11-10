@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://cheatsheets.cblanken.dev/%2Anix/bash/">
+        <link rel="canonical" href="https://cheatsheets.cblanken.dev/%2Anix/arch/">
       
       
-        <link rel="prev" href="../arch/">
+        <link rel="prev" href="../..">
       
       
-        <link rel="next" href="../cron/">
+        <link rel="next" href="../bash/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Bash - cblanken's cheatsheets</title>
+        <title>Arch Linux - cblanken's cheatsheets</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bash" class="md-skip">
+        <a href="#arch-linux" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bash
+              Arch Linux
             
           </span>
         </div>
@@ -263,29 +263,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../arch/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Arch Linux
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -303,7 +280,7 @@
   
   
   <span class="md-ellipsis">
-    Bash
+    Arch Linux
     
   </span>
   
@@ -316,7 +293,7 @@
   
   
   <span class="md-ellipsis">
-    Bash
+    Arch Linux
     
   </span>
   
@@ -339,11 +316,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
+  <a href="#package-management" class="md-nav__link">
     <span class="md-ellipsis">
-      Tools
+      Package Management
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Package Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clean-up-the-pacman-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clean up the Pacman cache
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clean up the Pacman cache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -351,6 +382,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bash
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1339,11 +1393,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
+  <a href="#package-management" class="md-nav__link">
     <span class="md-ellipsis">
-      Tools
+      Package Management
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Package Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clean-up-the-pacman-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clean up the Pacman cache
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clean up the Pacman cache">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Option 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1363,11 +1471,17 @@
 
 
 
-<h1 id="bash">Bash</h1>
-<h2 id="tools">Tools</h2>
-<ul>
-<li><a href="https://www.shellcheck.net">ShellCheck</a>: static analysis tool for shell scripts</li>
-</ul>
+<h1 id="arch-linux">Arch Linux</h1>
+<h2 id="package-management">Package Management</h2>
+<h3 id="clean-up-the-pacman-cache">Clean up the Pacman cache</h3>
+<h4 id="option-1">Option 1</h4>
+<p>Run <code>pacman -Sc</code>. This cleans out the <em>entire</em> pacman cache. This means no downgrades or recovering removed packages without re-downloading them.</p>
+<h4 id="option-2">Option 2</h4>
+<p>Use the <a href="https://man.archlinux.org/man/paccache.8">paccache</a> utility script. This is a safer for managing the pacman cache. See more details <a href="https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache">here</a></p>
+<h5 id="examples">Examples</h5>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>paccache<span class="w"> </span>-ruk0<span class="w">  </span><span class="c1"># Remove all cached versions of uninstalled packages</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>paccache<span class="w"> </span>-rk1<span class="w">   </span><span class="c1"># Remove cached package versions, retaining 1 past version</span>
+</span></code></pre></div>
 
 
 
