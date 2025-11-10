@@ -318,6 +318,12 @@ fn main() {
 
 ### Lifetimes
 
+Some general tips:
+
+1. Don't use References. Use ownership and share nothing. Pass and return variables through functions if you need to.
+2. Copy and Clone everything. The performance hit probably won't be noticeable. If it is, _then_ refactor.
+3. Only use References
+
 #### Lifetime Annotation Syntax
 
 ```rust
