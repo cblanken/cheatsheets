@@ -2,122 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cheatsheets.cblanken.dev/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/%2Anix/bash/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/%2Anix/cron/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/%2Anix/linux/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/%2Anix/systemd/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/misc/chrome/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/misc/gnuplot/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/misc/google-dorking/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/misc/source_engine/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/networking/tcpdump/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/programming/asm/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/programming/c/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/programming/css/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/programming/git/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
+    </url>
+    <url>
+         <loc>https://cheatsheets.cblanken.dev/programming/html/</loc>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/programming/javascript/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/programming/patterns/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/programming/php/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/programming/python/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/programming/rust/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/security/autopsy/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/security/gdb/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/security/metasploit/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/security/pwntools/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/security/rizin/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/security/splunk/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/security/volatility/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/virtualization/docker/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/windows/cmd/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/windows/powershell/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
     <url>
          <loc>https://cheatsheets.cblanken.dev/windows/windows/</loc>
-         <lastmod>2025-10-19</lastmod>
+         <lastmod>2025-11-10</lastmod>
     </url>
 </urlset>
